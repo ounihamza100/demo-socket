@@ -16,10 +16,11 @@ public class DefaultServer {
             ServerSocket ss = new ServerSocket(1234);
             System.out.println("J'attend la connexion... ");
             Socket s = ss.accept();
+            System.out.println("Connexion d'un client "+ s.getRemoteSocketAddress());
             InputStream is = s.getInputStream();
             OutputStream os = s.getOutputStream();
             System.out.println("J'attend que le client envoie un octet...");
-            int nb = is.read();
+            int nb = is.read();//read one byte
             System.out.println("j'ai recu un nombre "+ nb);
             int res = nb * 5;
             System.out.println("j'envoie la réponse...");
